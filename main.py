@@ -31,6 +31,7 @@ if choice == "start":
 
         for bullet in bullets[:]:            #slice whole list and make "bullets" copy
             bullet.move()                    #move the bullet upwards 5 pixels per frame
+            bullet.draw(screen)
             if bullet.rect.bottom < 0:       #if the bottom y coordinate of the bullet rect is less than 0, delete it 
                 bullets.remove(bullet)
 

@@ -1,5 +1,5 @@
 import pygame
-
+from bullet import Bullet
 class Player:                             #creating a player object 
     def __init__(self, x, y):             #constructor taking two arguments for the start location of the player (self is passed automatically when you make a player)
         self.width = 50
@@ -9,12 +9,19 @@ class Player:                             #creating a player object
         self.speed = 5                                          #move five pixels per frame
 
 
-        
-    def move(self, keys):
-        if keys[pygame.K_LEFT] and self.rect.left > 0:
+    #creating player movement   
+    def move(self, keys):                                        #take the keys array as a parameter 
+        if keys[pygame.K_LEFT] and self.rect.left > 0:           #change our x coordinate / left coordinate by our speed attribute each frame
+            self.rect.x -= self.speed 
             print("moving left")
-        if keys[pygame.K_RIGHT] and self.rect.right < 800:
+        if keys[pygame.K_RIGHT] and self.rect.right < 800:    
+            self.rect.x += self.speed
             print("moving right")
 
-    def draw(self, screen):
+    def draw(self, screen):                                       #draw our rect object
         pygame.draw.rect(screen, self.color, self.rect)
+
+    def shoot(self):                                              #shooting method 
+        bullet = Bullet(self.rect.centerx, self.rect.top)
+        return bullet
+        

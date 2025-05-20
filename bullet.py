@@ -8,7 +8,7 @@ class Bullet:                                                           #created
         self.rect = pygame.Rect(x, y, self.width, self.height)          #spawn coordinates and dimensions
         self.speed = 10
 
-    def move(self):                                               #moves UPWARD even though were subtracting because of the way pygame coordinates work 
+    def move(self):                                                     #moves UPWARD even though were subtracting because of the way pygame coordinates work 
         self.rect.y -= self.speed
 
     def draw(self, screen):                                             #drawing our rect object, the bullet 

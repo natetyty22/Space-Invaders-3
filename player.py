@@ -20,8 +20,8 @@ class Player:                             #creating a player object
 
     def draw(self, screen):                                       #draw our rect object
         pygame.draw.rect(screen, self.color, self.rect)
-
+ 
     def shoot(self):                                              #shooting method 
-        bullet = Bullet(self.rect.centerx, self.rect.top)
+        bullet = Bullet(self.rect.centerx, self.rect.top)         #spawning bullets at center top of player     
         return bullet
         
